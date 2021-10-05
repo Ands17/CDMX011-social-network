@@ -3,18 +3,25 @@
   padding: 0%;
 }
 
+body{
+  width: 100%;
+  display: block;
 
-.LoginDiv{
-  position:relative;
-  width: 360px;
-  height: 640px;
   background: linear-gradient(180deg, rgba(185, 235, 226, 0) 0%, rgba(185, 235, 226, 0.273256) 0.01%, rgba(185, 235, 226, 0.448921) 23.96%, rgba(185, 235, 226, 0.877124) 67.71%, #B9EBE2 100%);
 }
+#root{
+  width: 100%;
 
-form {
-  display: flex;
-  flex-direction: column;
 }
+.loginDiv{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+}
+  
+
 
 #email{
   position: absolute;
