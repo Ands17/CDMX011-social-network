@@ -1,0 +1,113 @@
+*{
+  margin: 0%;
+  padding: 0%;
+}
+
+
+.LoginDiv{
+  position:relative;
+  width: 360px;
+  height: 640px;
+  background: linear-gradient(180deg, rgba(185, 235, 226, 0) 0%, rgba(185, 235, 226, 0.273256) 0.01%, rgba(185, 235, 226, 0.448921) 23.96%, rgba(185, 235, 226, 0.877124) 67.71%, #B9EBE2 100%);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+#email{
+  position: absolute;
+  width: 236px;
+  height: 30px;
+  left: 62px;
+  top: 248px;
+  
+  background: #FFFFFF;
+  border-radius: 10px;
+  border: 0;
+
+}
+
+#password{
+  position: absolute;
+  width: 236px;
+  height: 30px;
+  left: 62px;
+  top: 298px;
+
+  background: #FFFFFF;
+  border-radius: 10px;
+  border: 0;
+}
+
+#btnLogin{
+  position: absolute;
+  width: 120px;
+  height: 30px;
+  left: 120px;
+  top: 354px;
+
+  background: #E18282;
+  mix-blend-mode: normal;
+  border-radius: 10px;
+  border: 0;
+  color: #FFFFFF;
+}
+
+#btnRegister{
+  position: absolute;
+  width: 120px;
+  height: 30px;
+  left: 120px;
+  top: 507px;
+
+  background: #E18282;
+  mix-blend-mode: normal;
+  border-radius: 10px;
+  border: 0;
+  color: #FFFFFF;
+}
+
+#link{
+    position: absolute;
+width: 164px;
+height: 25px;
+left: 98px;
+top: 395px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 13px;
+line-height: 15px;
+text-align: center;
+}
+
+#line{
+  position: absolute;
+  width: 315px;
+  height: 0px;
+  left: 22px;
+  top: 446px;
+
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+#account{
+  position: absolute;
+  width: 136px;
+  height: 15px;
+  left: 119px;
+  top: 465px;
+  
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+
+color: #343333;
+
+}
+
