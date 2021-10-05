@@ -1,4 +1,3 @@
-
 import { onNavigate } from "../main.js";
 export const Login = () => {
     const LoginDiv = document.createElement('div');
