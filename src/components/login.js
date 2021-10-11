@@ -1,9 +1,15 @@
 import { onNavigate } from "../main.js";
+
 export const Login = () => {
     const LoginDiv = document.createElement('div');
     LoginDiv.className = 'LoginDiv';
-     
+    const header = document.createElement('header');
+    const logo = document.createElement('img');
+    logo.src = '../images/adopta.png'
+    header.append(logo)
+    
     const form = document.createElement('form');
+    form.id = 'formLogin'
     const email = document.createElement('input');
     email.setAttribute('id','email')
     const password = document.createElement('input');
@@ -32,13 +38,16 @@ export const Login = () => {
     email.placeholder = 'Correo electrónico';
     password.placeholder = 'Contraseña';
     form.append(email);
-    form.append(line);
     form.append(password);
     form.append(a);
+    form.append(line);
     form.append(account);
     form.append(btnRegister);
     form.append(btnLogin);
+    LoginDiv.append(header)
+    
     LoginDiv.append(form);
+    
 
 
     return LoginDiv;

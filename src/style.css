@@ -1,114 +1,121 @@
-*{
-  margin: 0%;
-  padding: 0%;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 
 
-.LoginDiv{
-  position:relative;
-  width: 360px;
-  height: 640px;
-  background: linear-gradient(180deg, rgba(185, 235, 226, 0) 0%, rgba(185, 235, 226, 0.273256) 0.01%, rgba(185, 235, 226, 0.448921) 23.96%, rgba(185, 235, 226, 0.877124) 67.71%, #B9EBE2 100%);
+body {
+  min-height: 100vh;
+ 
+  background-color: #b9ebe2;
 }
-
-form {
+.LoginDiv {
   display: flex;
   flex-direction: column;
-}
-
-#email{
-  position: absolute;
-  width: 236px;
-  height: 30px;
-  left: 62px;
-  top: 248px;
+  align-items: center;
   
-  background: #FFFFFF;
-  border-radius: 10px;
-  border: 0;
-
+}
+header img {
+  width: 300px;
+  margin: 40px 0 40px;
+  
 }
 
-#password{
-  position: absolute;
-  width: 236px;
+
+#formLogin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#email {
+  width: 250px;
   height: 30px;
-  left: 62px;
-  top: 298px;
-
-  background: #FFFFFF;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 0;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+#password {
+  width: 250px;
+  height: 30px;
+  background: #ffffff;
   border-radius: 10px;
   border: 0;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+#link {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 15px;
+  margin-bottom: 40px;
 }
 
-#btnLogin{
-  position: absolute;
+#btnLogin {
   width: 120px;
   height: 30px;
-  left: 120px;
-  top: 354px;
-
-  background: #E18282;
+  background: #e18282;
   mix-blend-mode: normal;
   border-radius: 10px;
   border: 0;
-  color: #FFFFFF;
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-size: 18px;
 }
-
-#btnRegister{
-  position: absolute;
+#btnRegister {
   width: 120px;
   height: 30px;
-  left: 120px;
-  top: 507px;
-
-  background: #E18282;
+  background: #e18282;
   mix-blend-mode: normal;
   border-radius: 10px;
   border: 0;
-  color: #FFFFFF;
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-size: 18px;
 }
 
-#link{
-    position: absolute;
-width: 164px;
-height: 25px;
-left: 98px;
-top: 395px;
-
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 13px;
-line-height: 15px;
-text-align: center;
-}
-
-#line{
-  position: absolute;
-  width: 315px;
+#line {
+  width: 250px;
   height: 0px;
-  left: 22px;
-  top: 446px;
-
   border: 1px solid rgba(0, 0, 0, 0.5);
+  margin-bottom: 40px;
 }
-
-#account{
-  position: absolute;
-  width: 136px;
-  height: 15px;
-  left: 119px;
-  top: 465px;
-  
+#account {
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
-  font-size: 13px;
+  font-size: 18px;
   line-height: 15px;
-
-color: #343333;
-
+  color: #343333;
+  margin-bottom: 20px;
 }
 
+/* Registro */
+.registerDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#user{
+  width: 250px;
+  height: 30px;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 0;
+  margin-bottom: 20px;
+  font-size: 18px;
+
+}
+#hregister{
+  
+    width: 300px;
+    height: 70px;
+    margin: 40px 0 70px 0px;
+    font-size:30px ;
+    
+  }
