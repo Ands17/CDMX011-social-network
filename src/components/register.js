@@ -1,5 +1,5 @@
 import { onNavigate } from "../main.js";
-
+import { createAccountWithtEmail } from "../lib/firebaseAuth.js";
 
 export const Register = () => {
 const RegisterDiv = document.createElement('div');
@@ -11,26 +11,27 @@ RegisterDiv.className = 'registerDiv'
  const tex2= document.createElement("p")
  tex2.textContent="Es fácil y rápido"
  const form = document.createElement('form');
- form.id = 'formLogin'
+ form.id = 'formRegister'
  const user = document.createElement('input')
  user.setAttribute('id', 'user')
  const email = document.createElement('input');
- email.setAttribute('id','email')
+ email.setAttribute('id','email1')
 const password = document.createElement('input');
-password.setAttribute('id','password')
+password.setAttribute('id','password1')
 password.setAttribute('type', 'password');
 const confirmPass = document.createElement('input');
 confirmPass.setAttribute('id','password')
 confirmPass.setAttribute('type', 'password')
 const btnRegister = document.createElement('button');
     btnRegister.setAttribute('id','btnRegister')
+    btnRegister.setAttribute('type', 'button')
     btnRegister.textContent='Confirmar';
     const btnLogin= document.createElement('button');
     btnLogin.setAttribute('id','btnLogin')
+    btnLogin.setAttribute('type', 'button')
     btnLogin.textContent='Inicia sesión';
 
-    
-    btnLogin.addEventListener('click', () => onNavigate('/'));
+
     user.placeholder = 'Nombre de usuario'
     email.placeholder = 'Correo electrónico';
     password.placeholder = 'Contraseña';
@@ -44,8 +45,12 @@ const btnRegister = document.createElement('button');
  form.append(btnRegister)
  form.append(btnLogin)
  RegisterDiv.append(header)
-    RegisterDiv.append(form);
+ RegisterDiv.append(form);
    
+    btnLogin.addEventListener('click', () => onNavigate('/'));
+    btnRegister.addEventListener('click', ()=> {
+        createAccountWithtEmail("gatito@bonito.com", "123456")
+    })
 
     return RegisterDiv;
 };
