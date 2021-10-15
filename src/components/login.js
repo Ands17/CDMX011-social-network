@@ -1,4 +1,5 @@
 import { onNavigate } from "../main.js";
+import { buttonGoogle } from "./Googlebutton.js";
 
 export const Login = () => {
     const LoginDiv = document.createElement('div');
@@ -39,11 +40,12 @@ export const Login = () => {
     password.placeholder = 'Contraseña';
     form.append(email);
     form.append(password);
+    form.append(btnLogin)
     form.append(a);
     form.append(line);
     form.append(account);
     form.append(btnRegister);
-    form.append(btnLogin);
+    form.append(buttonGoogle())
     LoginDiv.append(header)
     
     LoginDiv.append(form);
