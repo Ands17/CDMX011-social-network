@@ -2,6 +2,7 @@
 import { onNavigate } from '../main.js';
 // eslint-disable-next-line object-curly-spacing
 import {createAccountWithtEmail} from '../lib/firebaseAuth.js';
+import { validationPassword } from '../validation.js';
 
 export const Register = () => {
   const RegisterDiv = document.createElement('div');
@@ -46,17 +47,16 @@ export const Register = () => {
   RegisterDiv.append(form);
 
   btnLogin.addEventListener('click', () => onNavigate('/'));
-  // btnRegister.addEventListener('click', ()=> {
-  // createAccountWithtEmail("gatito@bonito.com", "123456")
-  //   })
-
   btnRegister.addEventListener('click', () => {
     // e.preventDefault(); //para cancelar el reinicio de formulario
     // eslint-disable-next-line no-shadow
     const email = document.getElementById('email1').value;
     // eslint-disable-next-line no-shadow
     const password = document.getElementById('password1').value;
+    // eslint-disable-next-line no-shadow
+    const confirmPassword = document.getElementById('confirmPass').value;
     createAccountWithtEmail(email, password);
+    validationPassword(password, confirmPassword);
     // console.log(email, password, confirmPassword)
 
     // eslint-disable-next-line max-len

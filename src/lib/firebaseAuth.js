@@ -1,6 +1,7 @@
 import firebase from './secret.js';
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
+import { validationPassword } from '../validation.js';
 // Metodo que me permite autenticar  con usuario y contraseña
 export const createAccountWithtEmail = (email, password) => {
   firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -10,10 +11,9 @@ export const createAccountWithtEmail = (email, password) => {
     // ...
     })
     .catch(() => {
-    // const errorCode = error.code;
-    // const errorMessage = error.message;
       // eslint-disable-next-line no-alert
-      alert('contraseña debe de ser de más de 6 carácteres');
+      alert('cuenta ya registrada');
+      validationPassword();
     });
 };
 // método para iniciar sesión con Google
@@ -53,3 +53,9 @@ export const signInWithEmail = (email, password) => {
       alert('Correo no válido');
     });
 };
+// Cerrar sesión
+export const signOut = firebase.auth().signOut().then(() => {
+}).catch((error) => {
+  // eslint-disable-next-line no-console
+  console.log(error);
+});

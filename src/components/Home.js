@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-cycle
-import { onNavigate } from '../main.js';
+import { signOut } from '../lib/firebaseAuth.js';
 
 export const Home = () => {
   const container = document.createElement('div');
@@ -7,7 +7,7 @@ export const Home = () => {
 
   btnHome.textContent = 'Cerrar sesión';
 
-  btnHome.addEventListener('click', () => onNavigate('/'));
+  btnHome.addEventListener('click', () => signOut());
 
   container.append(btnHome);
 
