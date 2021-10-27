@@ -25,6 +25,16 @@ export const onNavigate = (pathname) => {
   }
   rootDiv.append(routes[pathname]());
 };
+
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    onNavigate('/home');
+    // ...
+  } else {
+    onNavigate('/');
+  }
+});
+
 const component = routes[window.location.pathname];
 
 window.onpopstate = () => {

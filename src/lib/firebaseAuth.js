@@ -2,6 +2,8 @@ import firebase from './secret.js';
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
 import { validationPassword } from '../validation.js';
+
+export const getUser = () => firebase.auth().currentUser;
 // Metodo que me permite autenticar  con usuario y contraseña
 export const createAccountWithtEmail = (email, password) => {
   firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -12,7 +14,6 @@ export const createAccountWithtEmail = (email, password) => {
     })
     .catch(() => {
       // eslint-disable-next-line no-alert
-      alert('cuenta ya registrada');
       validationPassword();
     });
 };
@@ -25,6 +26,8 @@ export const loginWithGoogle = () => {
     .signInWithPopup(provider)
     .then(() => {
     /** @type {firebase.auth.OAuthCredential} */
+      // eslint-disable-next-line no-alert
+      alert('Bienvenid@ a Adopta-Pet, Adóptame');
       // const credential = result.credential;
       // eslint-disable-next-line no-console
       // console.log(credential);
@@ -33,10 +36,10 @@ export const loginWithGoogle = () => {
       // eslint-disable-next-line no-console
       console.log('registro con google');
     // ...
-    }).catch((error) => {
+    }).catch(() => {
       // const errorMessage = error.message;
       // eslint-disable-next-line no-alert
-      alert(error.menssage);
+      // alert(error.menssage);
     // ...
     });
 };
@@ -54,8 +57,15 @@ export const signInWithEmail = (email, password) => {
     });
 };
 // Cerrar sesión
-export const signOut = firebase.auth().signOut().then(() => {
-}).catch((error) => {
-  // eslint-disable-next-line no-console
-  console.log(error);
-});
+export const signOut = () => {
+  firebase.auth().signOut()
+    .then(() => {
+      onNavigate('/');
+      // eslint-disable-next-line no-console
+      console.log('salir de app');
+    })
+    .catch((error) => {
+      // eslint-disable-next-line no-console
+      console.log(error);
+    });
+};

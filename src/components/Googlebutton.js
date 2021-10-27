@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-cycle
 import { loginWithGoogle } from '../lib/firebaseAuth.js';
 
 export const buttonGoogle = () => {
