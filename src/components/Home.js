@@ -8,20 +8,42 @@ import { createPost } from '../lib/firestore.js';
 import { getData } from '../lib/firestore.js';
 
 export const Home = () => {
+  const carrentuser = getUser();
+  const homeDiv = document.createElement('div');
+  homeDiv.className = 'homeDiv';
+  const header = document.createElement('header');
+  header.id = 'home';
+  /* const logo = document.createElement('img');
+  logo.src = '../images/adopta.png';
+  logo.id = 'logoHome'; */
+  const inicio = document.createElement('h1');
+  inicio.textContent = 'Conecta con tu próximo amigo peludo';
+  // header.append(logo);
+  header.append(inicio);
+  const welcome = document.createElement('h2');
+  welcome.textContent = `Bienvenid@ ${carrentuser.email}`;
   const container = document.createElement('div');
   const texto = document.createElement('textarea');
+  texto.id = 'txt';
+  texto.placeholder = 'Publica a los perros y/o gatos que tengas en adopción';
+  const contenedorTxt = document.createElement('div');
+  contenedorTxt.id = 'contenedor';
   const btnHome = document.createElement('button');
+  btnHome.id = 'btnHome';
   const btnPublicar = document.createElement('button');
+  btnPublicar.id = 'btnPublicar';
   btnPublicar.textContent = 'Publicar';
   btnHome.textContent = 'Cerrar sesión';
   const publicar = document.createElement('div');
   publicar.id = ('divPublicar');
-
-  container.append(texto);
-  container.append(btnPublicar);
+  contenedorTxt.append(texto);
+  homeDiv.append(header);
+  container.append(homeDiv);
   container.append(btnHome);
+  container.append(welcome);
+  container.append(contenedorTxt);
+  container.append(btnPublicar);
   container.append(publicar);
-  const carrentuser = getUser();
   btnHome.addEventListener('click', () => signOut());
 
   btnPublicar.addEventListener('click', () => {
@@ -33,7 +55,7 @@ export const Home = () => {
     publicacion.id = ('post');
     const html = ` 
     <p>${publicaciones.text}</p>
-    <p>Publicado by: ${publicaciones.user}</p>`;
+    <p><b>publicado por:</b> ${publicaciones.user}</p>`;
     publicacion.innerHTML = html;
     publicar.append(publicacion);
   };
@@ -45,7 +67,6 @@ export const Home = () => {
       });
     });
   };
-
   printData();
 
   return container;

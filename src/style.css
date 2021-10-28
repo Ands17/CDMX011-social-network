@@ -3,14 +3,19 @@
   padding: 0;
   box-sizing: border-box;
 }
+:root{
+  --themeColor:linear-gradient(180deg, rgba(185, 235, 226, 0.282386) 0.01%, rgba(185, 235, 226, 0) 0.02%, rgba(185, 235, 226, 0.319487) 0.03%, rgba(185, 235, 226, 0.448921) 30.73%, rgba(185, 235, 226, 0.877124) 59.9%, #B9EBE2 100%);
+  --font:'Poppins', sans-serif;}
 
 
 
 body {
   min-height: 100vh;
- 
   background: linear-gradient(180deg, rgba(185, 235, 226, 0.282386) 0.01%, rgba(185, 235, 226, 0) 0.02%, rgba(185, 235, 226, 0.319487) 0.03%, rgba(185, 235, 226, 0.448921) 30.73%, rgba(185, 235, 226, 0.877124) 59.9%, #B9EBE2 100%);
+  font-family: var(--font);
+
 }
+
 .LoginDiv {
   display: flex;
   flex-direction: column;
@@ -18,7 +23,7 @@ body {
   
 }
 header img {
-  width: 300px;
+  width: 200px;
   margin: 40px 0 40px;
   
 }
@@ -36,7 +41,8 @@ header img {
   border-radius: 20px;
   border: 0;
   margin-bottom: 20px;
-  font-size: 18px;
+  font-size: 15px;
+  font-family: var(--font);
 }
 #password {
   width: 250px;
@@ -45,13 +51,12 @@ header img {
   border-radius: 10px;
   border: 0;
   margin-bottom: 20px;
-  font-size: 18px;
+  font-size: 15px;
+  font-family: var(--font);
 }
 #link {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
+font-family: var(--font);
+  font-size: 15px;
   line-height: 15px;
   margin-bottom: 40px;
 }
@@ -60,23 +65,23 @@ header img {
   width: 120px;
   height: 30px;
   background: #e18282;
-  mix-blend-mode: normal;
+  font-family: var(--font);
   border-radius: 10px;
   border: 0;
   color: #ffffff;
   margin-bottom: 20px;
-  font-size: 18px;
+  font-size: 15px;
 }
 #btnRegister {
   width: 120px;
   height: 30px;
   background: #e18282;
-  mix-blend-mode: normal;
+  font-family: var(--font);
   border-radius: 10px;
   border: 0;
   color: #ffffff;
   margin-bottom: 20px;
-  font-size: 18px;
+  font-size: 15px;
 }
 
 #line {
@@ -86,10 +91,9 @@ header img {
   margin-bottom: 40px;
 }
 #account {
-  font-family: Roboto;
-  font-style: normal;
+  font-family:var(--font);
   font-weight: 500;
-  font-size: 18px;
+  font-size: 15px;
   line-height: 15px;
   color: #343333;
   margin-bottom: 20px;
@@ -116,7 +120,7 @@ header img {
   border-radius: 20px;
   border: 0;
   margin-bottom: 20px;
-  font-size: 18px;
+  font-size: 15px;
 
 }
 #hregister{
@@ -124,7 +128,7 @@ header img {
     width: 300px;
     height: 70px;
     margin: 40px 0 70px 0px;
-    font-size:30px ;
+    font-size:15px ;
     
   }
   
@@ -135,7 +139,7 @@ header img {
   border-radius: 20px;
   border: 0;
   margin-bottom: 20px;
-  font-size: 18px;
+  font-size: 15px;
 }
 #password1 {
   width: 250px;
@@ -144,7 +148,7 @@ header img {
   border-radius: 10px;
   border: 0;
   margin-bottom: 20px;
-  font-size: 18px;
+  font-size: 15px;
 }
 
 #confirmPass{
@@ -155,7 +159,7 @@ header img {
   border-radius: 10px;
   border: 0;
   margin-bottom: 20px;
-  font-size: 18px;
+  font-size: 15px;
 }
 
 
@@ -180,6 +184,80 @@ header img {
   font-size: 18px;
 
 
+}
+
+.homeDiv{
+ display: flex;
+ flex-direction: column;
+}
+#home{
+ padding: 30px 0px 30px;
+    background: rgba(214, 151, 151, 0.6);
+
+}
 
 
+
+h1{
+  font-size: 16px;
+  text-align: center;
+  
+}
+
+
+
+
+
+h2{
+  font-size: 16px;
+  padding-bottom: 10px;
+  margin-left: 20px;
+}
+#contenedor{
+  width: 25%;
+ margin-left:  20px;
+  
+}
+#txt{
+  width: 300px;
+  height: 50px;
+  opacity: 85%;
+  font-size: 16px;
+  font-family: var(--font);
+  
+}
+
+#btnHome{
+  margin-left: 200px;
+  width: 120px;
+  height: 30px;
+  background: #e18282;
+  border-radius: 10px;
+  border: 0;
+  color: #ffffff;
+  margin-bottom: 40px;
+  margin-top: 10px;
+
+  font-size: 17px;
+}
+
+#btnPublicar{
+  margin-left: 200px;
+  width: 100px;
+  height: 30px;
+  background: #e18282;
+  border-radius: 10px;
+  border: 0;
+  color: #ffffff;
+
+  font-size: 17px;
+}
+#post{
+ 
+  margin-bottom: 15px;
+  font-size: 16px;
+
+}
+#divPublicar{
+  margin-left: 5px;
 }
