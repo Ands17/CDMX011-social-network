@@ -12,3 +12,10 @@ export const validationPassword = (password, confirmPassword) => {
   }
   return validationPassword;
 };
+
+const validPost = (post) => {
+  if (post === '') {
+    return false;
+  }
+  return true;
+};

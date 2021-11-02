@@ -5,7 +5,10 @@ import { signOut } from '../lib/firebaseAuth.js';
 // eslint-disable-next-line import/no-cycle
 import { getUser } from '../lib/firebaseAuth.js';
 import { createPost } from '../lib/firestore.js';
-import { getData } from '../lib/firestore.js';
+// eslint-disable-next-line no-unused-vars
+import {
+  onGetPost, getData, getDoc, deletePost, updatePost,
+} from '../lib/firestore.js';
 
 export const Home = () => {
   const carrentuser = getUser();
@@ -46,28 +49,62 @@ export const Home = () => {
   container.append(publicar);
   btnHome.addEventListener('click', () => signOut());
 
+  // Guardar estado de app
+  let editStatus = false;
+  let idd = '';
+
   btnPublicar.addEventListener('click', () => {
-    createPost(texto.value, carrentuser.email);
+    if (!editStatus) {
+      createPost(texto.value, carrentuser.email);
+    } else {
+      updatePost(idd, {
+        text: texto.value,
+      });
+      editStatus = false;
+      btnPublicar.innerText = 'Publicar';
+      idd = '';
+    }
   });
+  // actualizar los post
+  onGetPost((querySnapshot) => {
+    publicar.innerHTML = '';
+    querySnapshot.forEach((doc) => {
+      const publicacion = document.createElement('div');
+      publicacion.id = ('post');
+      const html = ` 
+        <p>${doc.data().text}</p>
+        <p><b>publicado por:</b> ${doc.data().user}</p>
+        <div><button  class='btnEdit' data-id = '${doc.id}'>Editar</button>
+        <button  class='btnEliminar' data-id = '${doc.id}'>Eliminar</button>
+        </div>`;
+        // eslint-disable-next-line no-console
+      // console.log(doc.id);
+      publicacion.innerHTML = html;
+      publicar.append(publicacion);
+    });
 
-  const templatePost = (publicaciones) => {
-    const publicacion = document.createElement('div');
-    publicacion.id = ('post');
-    const html = ` 
-    <p>${publicaciones.text}</p>
-    <p><b>publicado por:</b> ${publicaciones.user}</p>`;
-    publicacion.innerHTML = html;
-    publicar.append(publicacion);
-  };
-
-  const printData = async () => {
-    await getData().then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        templatePost(doc.data());
+    const btnsEdit = document.querySelectorAll('.btnEdit');
+    btnsEdit.forEach((btn) => {
+      btn.addEventListener('click', async (e) => {
+        const docEdit = await getDoc(e.target.dataset.id);
+        // eslint-disable-next-line no-console
+        console.log(docEdit.data());
+        editStatus = true;
+        idd = docEdit.id;
+        texto.value = docEdit.data().text;
+        btnPublicar.innerText = 'Actualizar';
       });
     });
-  };
-  printData();
+
+    const btnsDelete = document.querySelectorAll('.btnEliminar');
+    btnsDelete.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        // eslint-disable-next-line no-console
+        console.log(e.target.dataset.id);
+        deletePost(e.target.dataset.id);
+      });
+    });
+  });
 
   return container;
 };
