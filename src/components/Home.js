@@ -7,7 +7,7 @@ import { getUser } from '../lib/firebaseAuth.js';
 import { createPost } from '../lib/firestore.js';
 // eslint-disable-next-line no-unused-vars
 import {
-  onGetPost, getData, getDoc, deletePost, updatePost,
+  onGetPost, getData, getPost, deletePost, updatePost,
 } from '../lib/firestore.js';
 
 export const Home = () => {
@@ -51,20 +51,8 @@ export const Home = () => {
 
   // Guardar estado de app
   let editStatus = false;
-  let idd = '';
+  let id = '';
 
-  btnPublicar.addEventListener('click', () => {
-    if (!editStatus) {
-      createPost(texto.value, carrentuser.email);
-    } else {
-      updatePost(idd, {
-        text: texto.value,
-      });
-      editStatus = false;
-      btnPublicar.innerText = 'Publicar';
-      idd = '';
-    }
-  });
   // actualizar los post
   onGetPost((querySnapshot) => {
     publicar.innerHTML = '';
@@ -86,11 +74,11 @@ export const Home = () => {
     const btnsEdit = document.querySelectorAll('.btnEdit');
     btnsEdit.forEach((btn) => {
       btn.addEventListener('click', async (e) => {
-        const docEdit = await getDoc(e.target.dataset.id);
+        const docEdit = await getPost(e.target.dataset.id);
         // eslint-disable-next-line no-console
         console.log(docEdit.data());
+        id = docEdit.id;
         editStatus = true;
-        idd = docEdit.id;
         texto.value = docEdit.data().text;
         btnPublicar.innerText = 'Actualizar';
       });
@@ -105,6 +93,15 @@ export const Home = () => {
       });
     });
   });
-
+  btnPublicar.addEventListener('click', () => {
+    if (!editStatus) {
+      createPost(texto.value, carrentuser.email);
+    } else {
+      updatePost(id, texto.value);
+      editStatus = false;
+      btnPublicar.innerText = 'Publicar';
+    }
+    texto.value = '';
+  });
   return container;
 };
