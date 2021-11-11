@@ -58,13 +58,6 @@ export const Register = () => {
     createAccountWithtEmail(email, password);
     validationPassword(password, confirmPassword);
     // console.log(email, password, confirmPassword)
-
-    // eslint-disable-next-line max-len
-    // if (validateEmail(email) === true && (validatePassword(password, inputConfirmPassword) === true)) {
-    // fireBaseSignUp(email, password);
-    // } else {
-    // onNavigate('/signUp');
-    // }
   });
 
   return RegisterDiv;

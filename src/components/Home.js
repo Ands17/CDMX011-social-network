@@ -7,11 +7,11 @@ import { getUser } from '../lib/firebaseAuth.js';
 import { createPost } from '../lib/firestore.js';
 // eslint-disable-next-line no-unused-vars
 import {
-  onGetPost, getData, getPost, deletePost, updatePost,
+  onGetPost, getPost, deletePost, updatePost,
 } from '../lib/firestore.js';
 
 export const Home = () => {
-  const carrentuser = getUser();
+  const currentuser = getUser();
   const homeDiv = document.createElement('div');
   homeDiv.className = 'homeDiv';
   const header = document.createElement('header');
@@ -24,7 +24,7 @@ export const Home = () => {
   // header.append(logo);
   header.append(inicio);
   const welcome = document.createElement('h2');
-  welcome.textContent = `Bienvenid@ ${carrentuser.email}`;
+  welcome.textContent = `Bienvenid@ ${currentuser.email}`;
   const container = document.createElement('div');
   const texto = document.createElement('textarea');
   texto.id = 'txt';
@@ -95,9 +95,12 @@ export const Home = () => {
   });
   btnPublicar.addEventListener('click', () => {
     if (!editStatus) {
-      createPost(texto.value, carrentuser.email);
+      createPost(texto.value, currentuser.email);
     } else {
-      updatePost(id, texto.value);
+      const postData = {
+        text: texto.value,
+      };
+      updatePost(id, postData);
       editStatus = false;
       btnPublicar.innerText = 'Publicar';
     }

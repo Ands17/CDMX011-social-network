@@ -24,4 +24,4 @@ export const deletePost = (id) => db.collection('post').doc(id).delete();
 export const onGetPost = (obj) => db.collection('post').onSnapshot(obj);
 
 // Actualizar un post
-export const updatePost = (id, updatedPost) => db.collection('post').doc(id).update(id, { updatedPost });
+export const updatePost = (id, updatedPost) => db.collection('post').doc(id).update(updatedPost);
